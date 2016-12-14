@@ -1,0 +1,19 @@
+---
+
+- apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    state: present
+
+- apt_repository:
+    repo: https://packages.microsoft.com/config/ubuntu/16.04/mssql-server.list
+    state: present
+
+- apt: 
+    update_cache: yes
+
+- apt: 
+    name: mssql-server 
+    state: present
+
+# need to automate this stuff.
+# - command: sudo /opt/mssql/bin/sqlservr-setup
